@@ -79,6 +79,8 @@ while not cancel:
                 window_2.close()
             elif event == "Cancelar":    #Si el usuario da click en cancelar, no se guarda ningun cambio en el excel
                 window_2.close()
+
+            #La tercera ventana tiene el mismo funcionamiento que las dos anteriores.
             
             window_2 = win_Totem()
             event, values = window_2.read()
