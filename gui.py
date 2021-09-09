@@ -8,6 +8,7 @@ sg.theme('DarkBlue')  #Tema de color
 
 
 layout = [ [sg.Text('Este es un programa con interfaz visual para modificar el excel de chequeo de equipos.') ],
+                        [sg.Text('Ingrese su nombre completo'), sg.InputText()],
                         [sg.Text('Desea hacer cambios en el excel?')],
                         [sg.Button('Si'),  sg.Button('No')],
                         [sg.Button('Cancelar')] ]
@@ -45,14 +46,17 @@ window = sg.Window('Modificar Excel', layout) #Creamos la ventana y ponemos el t
 cancel = False
 while not cancel:
     event, values = window.read()
+    #hoja['B17'] = values[0]
     if event == sg.WIN_CLOSED or event == 'Cancelar':
         cancel = True
     #Si no se quiere hacer cambios se guarda el archivo con la fecha y hora actualizadas.
     if event == 'No':
+        hoja['B17'] = values[0]
         save()
         cancel = True
     #Si se quiere hacer cambios se cambia la ventana del menú.
     elif event == 'Si':
+        hoja['B17'] = values[0]
         finish = False
         while not finish:
             #La segunda ventana toma el valor de la función win_TvPB, mostrando en la misma los valores cargandos de la función.
