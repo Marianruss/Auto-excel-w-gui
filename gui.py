@@ -6,8 +6,9 @@ from openpyxl import workbook
 excelDoc = openpyxl.load_workbook('Checklist Equipos RRHH.xlsx')
 hoja = excelDoc["Hoja1"]
 
+#Función para guardar el excel.
 def save():
-    excelDoc.save('Checklist Equipos RRHH.xlsx')
+    excelDoc.save('Checklist Equipos RRHH.xlsx') 
 
 sg.theme('DarkBlue')  #Tema de color
 
