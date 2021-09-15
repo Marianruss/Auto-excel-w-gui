@@ -21,13 +21,13 @@ layout = [ [sg.Text('Este es un programa con interfaz visual para modificar el e
                         [sg.Button('Cancelar')] ]
             
 # Función de la ventana 2, con botones y campos a completar.
-def window2(ubicacion):
+def window2(ubicacion,title):
     layout = [
         [sg.Text(f'Ingrese estado de {ubicacion} : '), sg.InputText()],
         [sg.Text('Que solución se le dió?: '), sg.InputText()],
         [sg.Button('Aceptar'), sg.Button('Cancelar')]
     ]
-    window2 = sg.Window('test', layout, modal=True)
+    window2 = sg.Window(title, layout, modal=True)
     return window2
 
 window = sg.Window('Modificar Excel', layout) #Creamos la ventana y ponemos el titulo
@@ -51,7 +51,7 @@ while not close:
             #La segunda ventana toma el valor de la función window2, el parametro toma como valor la ubicación del equipo.
             #Luego de eso, la ventana se cierra.
 
-            window_2 = window2("Planta baja")
+            window_2 = window2("TV Planta baja","TV Planta Baja")
             event, values = window_2.read()  
             if event == 'Aceptar':
                 hoja['b4'].value = values[0]       #El valor del primer input de la ventana se carga en la celda correspondiente de excel
@@ -64,7 +64,7 @@ while not close:
             #Cuando se da aceptar o cancelar en la ventana anterior, se abre la siguiente, se llama a la función window2 con la ubicación correspondiente
             #Funciona de la misma forma que la anterior.
 
-            window_2 = window2("Primer piso")
+            window_2 = window2("TV Primer piso","TV Primer piso")
             event, values = window_2.read()
             if event == 'Aceptar':
                 hoja['b5'].value = values[0]     #El valor del primer input de la ventana se carga en la celda correspondiente de excel
@@ -75,7 +75,7 @@ while not close:
 
             #La tercera ventana tiene el mismo funcionamiento que las dos anteriores.
             
-            window_2 = window2("Totem")
+            window_2 = window2("Totem","Totem")
             event, values = window_2.read()
             if event == 'Aceptar':
                 hoja['b6'].value = values[0]     #El valor del primer input de la ventana se carga en la celda correspondiente de excel
